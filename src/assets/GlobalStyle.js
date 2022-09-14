@@ -46,6 +46,14 @@ table {
 	border-spacing: 0;
 }
 
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
 `;
 
 export default GlobalStyle;
