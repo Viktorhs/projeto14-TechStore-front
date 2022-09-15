@@ -18,7 +18,8 @@ export default function SignUp(){
         event.preventDefault();
 
         if(password !== confirm_password){
-            return alert('Senhas diferentes!')
+            alert('Senhas diferentes!');
+            return;
         }
 
         const body = {
@@ -37,9 +38,13 @@ export default function SignUp(){
         })
 
         .catch(err => {
+            if(err.response.status === 409) {
+                alert('Conta já existente!');
+            }
+
+            alert(err.response.data);
             setDisabled(false);
             setLoading(false);
-            alert(err.response.data);
         })
 
     }
