@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
-export default function CardProduction(){
+export default function CardProduction({name, price, img}){
     return(
         <Container>
-            <img src="https://br.celulares.com/fotos/samsung-galaxy-m52-5g-93891-g-alt.jpg" alt="product-img"/>
-            <h4>samsung m52</h4>
-            <p>R$ 2000,00</p>
+            <img src={img} alt="product-img"/>
+            <h4>{name}</h4>
+            <p>{price}</p>
             <AddCart>
                 <h6>adicionar ao carrinho</h6>
                 <h6>+</h6>
@@ -25,6 +25,7 @@ const Container = styled.div`
     margin-bottom: 20px;
     border-radius: 10px 10px 10px 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    cursor: pointer;
 
     
     img{

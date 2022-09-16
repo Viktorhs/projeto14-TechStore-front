@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
+import UserContext from "../../context/UserContext"
+import { logout } from "../../services/techstore"
 
 export default function Header(){
 
+    const {user ,setUser} = useContext(UserContext);
     const [isClicked, setIsClicked] = useState(false)
     const [isLogin, setIsLogin] = useState(false)
     const navigate = useNavigate()
@@ -17,16 +20,18 @@ export default function Header(){
         }
     }
 
+    
     function isLogout(){
         if(window.confirm("deseja mesmo sair?")){
-            //const promisse = logout()
-            //promisse.catch(() => {
-            //    alert('Erro de comunicação com o servidor')
-            //})
-            //promisse.then((r) => {
-            //    localStorage.removeItem("techstore")
-            //    navigate("/")
-            //})
+            const promisse = logout()
+            promisse.catch(() => {
+               alert('Erro de comunicação com o servidor')
+            })
+            promisse.then((r) => {
+               localStorage.removeItem("techstore")
+               setIsLogin(false)
+               navigate("/")
+            })
         }
 
     }
@@ -34,9 +39,11 @@ export default function Header(){
     useEffect(()=> {
     const auth = JSON.parse(localStorage.getItem("techstore"))
     if (!!auth) {
+        setUser(auth)
+        console.log(auth)
         setIsLogin(true)
     }
-},[])
+}, [isLogin])
 
     return(
     <Container>

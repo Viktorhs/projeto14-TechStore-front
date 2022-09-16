@@ -4,7 +4,7 @@ import CardProduction from "./CardProduct"
 export default function Products() {
     return(
         <Container>
-            <CardProduction></CardProduction>
+            <CardProduction/>
         </Container>
 
     )

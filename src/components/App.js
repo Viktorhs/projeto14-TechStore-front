@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<Products/>}/>
           <Route path='/registro' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
+          <Route path="/produto/:idProduto"/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>);
