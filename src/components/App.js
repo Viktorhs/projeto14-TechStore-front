@@ -5,6 +5,7 @@ import SignUp from "./SIgnUp/SignUp";
 import Login from "./Login/Login";
 import UserContext from "../context/UserContext";
 import { useState } from "react";
+import Products from "./Products/Products";
 
 function App() {
   const [user, setUser] = useState();
@@ -14,8 +15,10 @@ function App() {
         <GlobalStyle/>
         <Header/>
         <Routes>
+          <Route path="/" element={<Products/>}/>
           <Route path='/registro' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
+          <Route path="/produto/:idProduto"/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>);
