@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
@@ -30,16 +30,13 @@ export default function Header(){
         }
 
     }
-
+    
+    useEffect(()=> {
     const auth = JSON.parse(localStorage.getItem("techstore"))
-
-    function compara(auth) {
-        if (!!auth) {
-            setIsLogin(true)
-        }
+    if (!!auth) {
+        setIsLogin(true)
     }
-    compara(auth)
-
+},[])
 
     return(
     <Container>

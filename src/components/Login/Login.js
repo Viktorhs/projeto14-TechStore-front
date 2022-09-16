@@ -35,8 +35,10 @@ export default function Login(){
                 token: res.data.token
             }
             
+            const loginSerialized = JSON.stringify(dadosUser);
+            localStorage.setItem("techstore", loginSerialized);
             setUser(res.data);
-            navigate("/", {replace: true});
+            navigate("/", {replace: true})
         })
 
         .catch(err => {
@@ -46,7 +48,7 @@ export default function Login(){
                 return alert('Usuário não encontrado')
             }
 
-            if(err.request.status === 422){
+            if(err.request.status === 401){
                 setDisabled(false);
                 setLoading(false);
                 return alert('Email ou senha inválidos');
