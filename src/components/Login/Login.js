@@ -14,10 +14,8 @@ export default function Login(){
     const [disabled, setDisabled] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    
     function signIn(event){
-        setDisabled(true);
-        setLoading(true);
-
         event.preventDefault();
 
         const body = {
@@ -25,16 +23,20 @@ export default function Login(){
             password
         }
 
+        setDisabled(true);
+        setLoading(true);
+
         const promise = axios.post(`${BASE_URL}/login`,body);
 
         promise.then(res => {
+            
             const dadosUser = {
                 name: res.data.name,
                 token: res.data.token
             }
             
-            setUser(dadosUser);
-            navigate("/");
+            setUser(res.data);
+            navigate("/", {replace: true});
         })
 
         .catch(err => {
@@ -54,7 +56,7 @@ export default function Login(){
                 setLoading(false);
             })
 
-    }
+        }
 
     return(
         <Container>
