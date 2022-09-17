@@ -1,10 +1,30 @@
+import { useEffect, useState } from "react"
 import styled from "styled-components"
+import { getProducts } from "../../services/techstore"
 import CardProduction from "./CardProduct"
 
 export default function Products() {
+
+    const [list, setList] = useState([])
+
+    useEffect(() => {
+
+        const promise = getProducts()
+        promise.then(res => {
+            setList(res.data)
+            console.log(res.data)
+        })
+
+        promise.catch(err =>{
+            alert("falha em carregar os items")
+        })
+    }, [])
+
     return(
         <Container>
-            <CardProduction/>
+            {list.map((item, index) => 
+            <CardProduction name={item.product} price={item.price} productId={item._id} key={index} />
+            )}
         </Container>
 
     )

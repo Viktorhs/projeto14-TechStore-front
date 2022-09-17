@@ -14,10 +14,21 @@ function createHeaders() {
     return config;
 }
 
+function getProducts() {
+    const promise = axios.get(`${BASE_URL}/produtos`)
+    return promise
+}
+
 function logout() {
     const header = createHeaders()
     const promise = axios.delete(`${BASE_URL}/logout` ,header);
     return promise;
 }
 
-export {BASE_URL, logout};
+function addCart(id) {
+    const header = createHeaders()
+    const promise = axios.post(`${BASE_URL}/addCarrinho/${id}`,[], header)
+    return promise
+}
+
+export {BASE_URL, logout, getProducts, addCart};
