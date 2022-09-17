@@ -1,12 +1,28 @@
 import styled from "styled-components"
+import { addCart } from "../../services/techstore"
 
-export default function CardProduction({name, price, img}){
+export default function CardProduction({name, price, img, productId}){
+
+    function addToCart(id){
+        const auth = JSON.parse(localStorage.getItem("techstore"))
+        if (auth == null){
+            return alert("e necessario efetuar o login para adicionar ao carrinho")
+        }
+        const promise = addCart(id)
+        promise.catch(() => {
+            alert("não foi possivel adicionar o item ao carrinho")
+        });
+        promise.then(() => {
+            alert("adicionado com sucesso")
+        })
+    }
+
     return(
         <Container>
             <img src={img} alt="product-img"/>
             <h4>{name}</h4>
             <p>{price}</p>
-            <AddCart>
+            <AddCart onClick={() => addToCart(productId)}>
                 <h6>adicionar ao carrinho</h6>
                 <h6>+</h6>
             </AddCart>
