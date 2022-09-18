@@ -36,7 +36,7 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
+   
 
     @media (max-width: 1050px)
     {
@@ -45,5 +45,7 @@ const Container = styled.div`
         padding: 0 20px;
     }
     }
+
+  
 
 `

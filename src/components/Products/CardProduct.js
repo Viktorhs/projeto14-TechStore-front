@@ -37,6 +37,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 0 5px;
     margin-bottom: 20px;
     border-radius: 10px 10px 10px 10px;
@@ -50,6 +51,7 @@ const Container = styled.div`
         object-fit: cover;
         margin-bottom: 25px;
         border-radius: 10px 10px 0 0;
+
     }
 
     h4{
