@@ -10,6 +10,7 @@ import Products from "./Products/Products";
 import Payment from "./Checkout/Payment";
 import Finish from "./Checkout/FinishOrder";
 import ProductPage from "./ProductPage/ProductPage";
+import OrdersInfo from "./Informations/OrdersInfo";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/produto/:idProduto" element={<ProductPage/>}/>
           <Route path="/checkout" element={<Payment />}/>
           <Route path="/concluido" element={<Finish />}/>
+          <Route path="/informacao" element={<OrdersInfo />}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>);
