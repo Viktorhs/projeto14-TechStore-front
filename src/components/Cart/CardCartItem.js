@@ -61,7 +61,7 @@ export default function CardCartItem({name, price, img, productId, quantity, tot
                 <img src={img} alt="imagem-produto"/>
                 <h6>{name}</h6>
             </span>
-                <h6>R$ {price}</h6>
+                <h6>R$ {price.toFixed(2)}</h6>
             <span className="quantity">
                 <ion-icon name="remove-circle-outline" onClick={() => removeOne(productId)}></ion-icon>
                 <h6>{quantity}</h6>

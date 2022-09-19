@@ -18,6 +18,11 @@ function getProducts() {
     return promise
 }
 
+function getOneProduct(id) {
+    const promise = axios.get(`${BASE_URL}/produto/${id}`)
+    return promise
+}
+
 function logout() {
     const header = createHeaders()
     const promise = axios.delete(`${BASE_URL}/logout` ,header);
@@ -49,4 +54,14 @@ function removeItem(id) {
 }
 
 
-export {BASE_URL, logout, getProducts, addCart, removeOneQuantity, removeItem, getCart, createHeaders};
+export {
+    BASE_URL,
+    logout,
+    getProducts,
+    addCart,
+    removeOneQuantity,
+    removeItem,
+    getCart,
+    createHeaders,
+    getOneProduct
+};
