@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function UserInfos({orderId, orderDate, produtoNome, img, price, produto}){
+export default function UserInfos({orderId, orderDate, produto}){
 
     return(
         <Container>
