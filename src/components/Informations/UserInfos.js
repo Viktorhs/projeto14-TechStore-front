@@ -1,19 +1,21 @@
 import styled from "styled-components";
 
-export default function UserInfos({orderId, orderDate, produtoNome, img, price, total}){
+export default function UserInfos({orderId, orderDate, produto}){
+
     return(
         <Container>
             <Pedido>
                 <h3>Ticket do pedido: <b>{orderId}</b></h3>
                 <h3>Data do pedido: {orderDate}</h3>
+                <h3>Produtos: </h3>
                 <Products>
-                    <h3>Produtos: </h3>
+                    {produto.userOrder[0].products.map(item => 
                     <Product>
-                        <h3>{produtoNome}</h3>
-                        <img src={img} alt="imagem-produto"/>
-                        <h3>R$: {price}</h3>
-                        <Total><h3>Pedido total:</h3> {total}</Total>
-                    </Product>
+                        <h3>{item.product}</h3>
+                        <img src={item.img} alt="imagem-produto"/>
+                        <h3>R$: {item.price}</h3>
+                    </Product>)}
+                    
                 </Products>
             </Pedido>
         </Container>)
@@ -51,8 +53,8 @@ const Products = styled.div`
     height: auto;
     margin-bottom:20px;
     display: flex;
-    flex-direction: column;
-    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
      h3{
         font-family: 'Poppins';
@@ -73,7 +75,7 @@ const Products = styled.div`
     }
 
     img{
-        max-width:200px;
+        max-width:100px;
         max-height:150px;
         width: auto;
         height: auto;
@@ -83,27 +85,14 @@ const Products = styled.div`
 `;
 
 const Product = styled.div`
-    width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
-    background-color: blue;
-`;
-
-const Total = styled.div`
-    width: 100%;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
     height: auto;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 30px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-size: 20px;
-    color: #333333;
-
-    h3{
-        font-weight: 700;
-    }
+    border: 1px solid #282828;
+    flex-direction: column;
+    margin: 5px;
 `;

@@ -8,7 +8,6 @@ import Infos from "./Header";
 
 export default function OrdersInfo(){
     const header = createHeaders();
-    const [showing, setShowind] = useState(true);
     const [userInfos, setUserInfos] = useState([]);
 
     useEffect(() =>{
@@ -38,11 +37,8 @@ export default function OrdersInfo(){
                     key={index} 
                     orderId={item.orderId} 
                     orderDate={item.orderDate}
-                    produtoNome={item.userOrder.map(products => products.products.map(product => product.product))}
-                    img={item.userOrder.map(products => products.products.map(product => product.img))}
-                    price={item.userOrder.map(products => products.products.map(product => product.price))}
-                    total={item.userOrder.map(products => products.products.map(product => product.total).reduce((prev, curr) => prev + curr),0)}
-                     /> )}
+                    produto={item}
+                     /> )} 
             </Order>
         </Container>
     );
