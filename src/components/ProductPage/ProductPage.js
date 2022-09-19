@@ -29,12 +29,13 @@ export default function ProductPage(){
                         <h1>{product.product}</h1>
                         <h2>{product.mark}</h2>
                     </span>
-                    <Button>Adicionar ao carrinho</Button>
+                    <span>
+                        <h1>Preço: </h1>
+                        <h1>R${product.price}</h1>
+                    </span>
                 </div>
-                
-                
             </Infos>
-            
+            <Button>Adicionar ao carrinho</Button>
         </Container>
     )
 }
@@ -84,15 +85,26 @@ const Infos = styled.div`
     div{
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
         width: 50%;
+        height: 300px;
+        padding-top: 30px;
         margin-left: 26px;
-        margin-top: 20px;
+        margin-top: 50px;
     }
 
     span{
-        margin-top: 50px;
-        margin-bottom: 240px;
+        margin-bottom: 40px;
         margin-left: 10px;
+    }
+    span:last-child{
+        display: flex;
+    }
+
+    span:last-child h1{
+        margin-left: 10px;
+        display: flex;
     }
 
     h1{
