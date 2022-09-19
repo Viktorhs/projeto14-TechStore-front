@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { addCart } from "../../services/techstore"
 
 export default function CardProduction({name, price, img, productId}){
+
+    const navigate = useNavigate()
 
     function addToCart(id){
         const auth = JSON.parse(localStorage.getItem("techstore"))
@@ -19,8 +22,8 @@ export default function CardProduction({name, price, img, productId}){
 
     return(
         <Container>
-            <img src={img} alt="product-img"/>
-            <h4>{name}</h4>
+            <img src={img} alt="product-img" onClick={() => navigate(`/produto/${productId}`)}/>
+            <h4 onClick={() => navigate(`/produto/${productId}`)}>{name}</h4>
             <p>{price.toFixed(2)}</p>
             <AddCart onClick={() => addToCart(productId)}>
                 <h6>adicionar ao carrinho</h6>
@@ -34,10 +37,11 @@ const Container = styled.div`
     padding: 10px;
     position: relative;
     width: 258px;
+    height: 337px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0 5px;
     margin-bottom: 20px;
     border-radius: 10px 10px 10px 10px;
@@ -80,7 +84,7 @@ const AddCart = styled.div`
 
     padding: 0 10px;
     z-index: 5;
-    top: 270px;
+    top: 58%;
     left: 0;
     width: 40px;
     height: 40px;

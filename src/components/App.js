@@ -9,7 +9,7 @@ import Cart from "./Cart/Cart";
 import Products from "./Products/Products";
 import Payment from "./Checkout/Payment";
 import Finish from "./Checkout/FinishOrder";
-import Infos from "./Informations/Header";
+import ProductPage from "./ProductPage/ProductPage";
 import OrdersInfo from "./Informations/OrdersInfo";
 
 
@@ -27,7 +27,7 @@ function App() {
           <Route path='/registro' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
           <Route path="/carrinho" element={<Cart />}/>
-          <Route path="/produto/:idProduto"/>
+          <Route path="/produto/:idProduto" element={<ProductPage/>}/>
           <Route path="/checkout" element={<Payment />}/>
           <Route path="/concluido" element={<Finish />}/>
           <Route path="/informacao" element={<OrdersInfo />}/>
