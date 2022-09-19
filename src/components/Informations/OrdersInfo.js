@@ -29,7 +29,6 @@ export default function OrdersInfo(){
         })
     }, [])
 
-
     return(
         <Container>
             <Infos />
@@ -42,7 +41,8 @@ export default function OrdersInfo(){
                     produtoNome={item.userOrder.map(products => products.products.map(product => product.product))}
                     img={item.userOrder.map(products => products.products.map(product => product.img))}
                     price={item.userOrder.map(products => products.products.map(product => product.price))}
-                     /> )} 
+                    total={item.userOrder.map(products => products.products.map(product => product.total).reduce((prev, curr) => prev + curr),0)}
+                     /> )}
             </Order>
         </Container>
     );
