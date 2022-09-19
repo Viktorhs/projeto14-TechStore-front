@@ -7,13 +7,16 @@ import UserContext from "../context/UserContext";
 import { useState } from "react";
 import Cart from "./Cart/Cart";
 import Products from "./Products/Products";
-import Payment from "./Checkout/Payment"
+import Payment from "./Checkout/Payment";
+import Finish from "./Checkout/FinishOrder";
+
 
 function App() {
   const [user, setUser] = useState();
+  const [dados, setDados] = useState({});
   const [isLogin, setIsLogin] = useState(false)
   return (
-    <UserContext.Provider value={{user, setUser, isLogin, setIsLogin}}>
+    <UserContext.Provider value={{user, setUser, isLogin, setIsLogin, dados, setDados}}>
       <BrowserRouter>
         <GlobalStyle/>
         <Header/>
@@ -24,7 +27,7 @@ function App() {
           <Route path="/carrinho" element={<Cart />}/>
           <Route path="/produto/:idProduto"/>
           <Route path="/checkout" element={<Payment />}/>
-          
+          <Route path="/concluido" element={<Finish />}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>);

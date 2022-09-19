@@ -1,14 +1,16 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { getCart } from "../../services/techstore"
 import { createHeaders, BASE_URL } from "../../services/techstore";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../../context/UserContext";
 
 
 export default function Payment() { 
     const header = createHeaders();
     const navigate = useNavigate();
+    const {setDados} = useContext(UserContext);
     const [disabled, setDisabled] = useState(false);
     const [paymentInfo, setPaymentInfo] = useState({});
     const [list, setList] = useState([]);
@@ -51,8 +53,9 @@ export default function Payment() {
         const promise = axios.post(`${BASE_URL}/checkout`, dados, header);
 
         promise.then(res => {
-            navigate('/');
+            navigate('/concluido');
             setDisabled(false);
+            setDados(res.data);
         })
 
         .catch(err => {
@@ -105,6 +108,8 @@ const Apresentation = styled.div`
         line-height: 20px;
         color: #FFFFFF;
     }
+
+    
 `
 const Container = styled.div`
     width: 100vw;
