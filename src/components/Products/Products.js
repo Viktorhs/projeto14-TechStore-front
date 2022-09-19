@@ -23,7 +23,7 @@ export default function Products() {
     return(
         <Container>
             {list.map((item, index) => 
-            <CardProduction name={item.product} price={item.price} productId={item._id} key={index} />
+            <CardProduction name={item.product} price={item.price} productId={item._id} img={item.img} key={index} />
             )}
         </Container>
 
