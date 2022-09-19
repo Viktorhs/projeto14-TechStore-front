@@ -12,7 +12,6 @@ export default function Products() {
         const promise = getProducts()
         promise.then(res => {
             setList(res.data)
-            console.log(res.data)
         })
 
         promise.catch(err =>{

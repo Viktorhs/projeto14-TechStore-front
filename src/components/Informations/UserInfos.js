@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export default function UserInfos({orderId, orderDate, produtoNome, img, price}){
+export default function UserInfos({orderId, orderDate, produtoNome, img, price, produto}){
+
     return(
         <Container>
             <Pedido>
@@ -8,11 +9,13 @@ export default function UserInfos({orderId, orderDate, produtoNome, img, price})
                 <h3>Data do pedido: {orderDate}</h3>
                 <h3>Produtos: </h3>
                 <Products>
+                    {produto.userOrder[0].products.map(item => 
                     <Product>
-                        <h3>{produtoNome}</h3>
-                        <img src={img} alt="imagem-produto"/>
-                        <h3>R$: {price}</h3>
-                    </Product>
+                        <h3>{item.product}</h3>
+                        <img src={item.img} alt="imagem-produto"/>
+                        <h3>R$: {item.price}</h3>
+                    </Product>)}
+                    
                 </Products>
             </Pedido>
         </Container>)
@@ -50,7 +53,8 @@ const Products = styled.div`
     height: auto;
     margin-bottom:20px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
      h3{
         font-family: 'Poppins';
@@ -81,8 +85,14 @@ const Products = styled.div`
 `;
 
 const Product = styled.div`
-    width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: auto;
+    display: flex;
+    border: 1px solid #282828;
+    flex-direction: column;
+    margin: 5px;
 `;

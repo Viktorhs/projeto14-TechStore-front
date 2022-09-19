@@ -39,6 +39,7 @@ export default function OrdersInfo(){
                     key={index} 
                     orderId={item.orderId} 
                     orderDate={item.orderDate}
+                    produto={item}
                     produtoNome={item.userOrder.map(products => products.products.map(product => product.product))}
                     img={item.userOrder.map(products => products.products.map(product => product.img))}
                     price={item.userOrder.map(products => products.products.map(product => product.price))}
