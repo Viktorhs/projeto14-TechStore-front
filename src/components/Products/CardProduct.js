@@ -21,7 +21,7 @@ export default function CardProduction({name, price, img, productId}){
         <Container>
             <img src={img} alt="product-img"/>
             <h4>{name}</h4>
-            <p>{price}</p>
+            <p>{price.toFixed(2)}</p>
             <AddCart onClick={() => addToCart(productId)}>
                 <h6>adicionar ao carrinho</h6>
                 <h6>+</h6>

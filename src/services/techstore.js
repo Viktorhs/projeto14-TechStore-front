@@ -25,10 +25,29 @@ function logout() {
     return promise;
 }
 
+function getCart() {
+    const header = createHeaders()
+    const promise = axios.get(`${BASE_URL}/carrinho`, header)
+    return promise
+}
+
 function addCart(id) {
     const header = createHeaders()
     const promise = axios.post(`${BASE_URL}/addCarrinho/${id}`,[], header)
     return promise
 }
 
-export {BASE_URL, logout, getProducts, addCart};
+function removeOneQuantity(id) {
+    const header = createHeaders()
+    const promise = axios.post(`${BASE_URL}/removeOne/${id}`,[], header)
+    return promise
+}
+
+function removeItem(id) {
+    const header = createHeaders()
+    const promise = axios.delete(`${BASE_URL}/removeItem/${id}`, header)
+    return promise
+}
+
+
+export {BASE_URL, logout, getProducts, addCart, removeOneQuantity, removeItem, getCart};
