@@ -9,6 +9,8 @@ import Cart from "./Cart/Cart";
 import Products from "./Products/Products";
 import Payment from "./Checkout/Payment";
 import Finish from "./Checkout/FinishOrder";
+import Infos from "./Informations/Header";
+import OrdersInfo from "./Informations/OrdersInfo";
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
           <Route path="/produto/:idProduto"/>
           <Route path="/checkout" element={<Payment />}/>
           <Route path="/concluido" element={<Finish />}/>
+          <Route path="/informacao" element={<OrdersInfo />}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>);
