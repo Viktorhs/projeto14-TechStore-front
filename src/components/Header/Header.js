@@ -6,9 +6,9 @@ import { logout } from "../../services/techstore"
 
 export default function Header(){
 
-    const {user ,setUser} = useContext(UserContext);
+    const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
     const [isClicked, setIsClicked] = useState(false)
-    const [isLogin, setIsLogin] = useState(false)
+
     const navigate = useNavigate()
 
     function switchClick(){
@@ -30,6 +30,7 @@ export default function Header(){
             promisse.then((r) => {
                localStorage.removeItem("techstore")
                setIsLogin(false)
+               setUser([])
                navigate("/")
             })
         }
@@ -39,11 +40,9 @@ export default function Header(){
     useEffect(()=> {
     const auth = JSON.parse(localStorage.getItem("techstore"))
     if (!!auth) {
-        setUser(auth)
-        console.log(auth)
         setIsLogin(true)
     }
-}, [isLogin])
+}, [isLogin, user])
 
     return(
     <Container>

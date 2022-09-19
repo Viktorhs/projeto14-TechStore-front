@@ -6,18 +6,21 @@ import Login from "./Login/Login";
 import UserContext from "../context/UserContext";
 import { useState } from "react";
 import Products from "./Products/Products";
+import Cart from "./Cart/Cart";
 
 function App() {
   const [user, setUser] = useState();
+  const [isLogin, setIsLogin] = useState(false)
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{user, setUser, isLogin, setIsLogin}}>
       <BrowserRouter>
         <GlobalStyle/>
         <Header/>
         <Routes>
-          <Route path="/" element={<Products/>}/>
+          <Route path="/" element={<Products />}/>
           <Route path='/registro' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
+          <Route path="/carrinho" element={<Cart />}/>
           <Route path="/produto/:idProduto"/>
         </Routes>
       </BrowserRouter>
