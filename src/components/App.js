@@ -5,8 +5,9 @@ import SignUp from "./SIgnUp/SignUp";
 import Login from "./Login/Login";
 import UserContext from "../context/UserContext";
 import { useState } from "react";
-import Products from "./Products/Products";
 import Cart from "./Cart/Cart";
+import Products from "./Products/Products";
+import Payment from "./Checkout/Payment"
 
 function App() {
   const [user, setUser] = useState();
@@ -22,6 +23,8 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path="/carrinho" element={<Cart />}/>
           <Route path="/produto/:idProduto"/>
+          <Route path="/checkout" element={<Payment />}/>
+          
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>);
