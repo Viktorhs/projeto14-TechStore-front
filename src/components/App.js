@@ -9,6 +9,7 @@ import Cart from "./Cart/Cart";
 import Products from "./Products/Products";
 import Payment from "./Checkout/Payment";
 import Finish from "./Checkout/FinishOrder";
+import ProductPage from "./ProductPage/ProductPage";
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <Route path='/registro' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
           <Route path="/carrinho" element={<Cart />}/>
-          <Route path="/produto/:idProduto"/>
+          <Route path="/produto/:idProduto" element={<ProductPage/>}/>
           <Route path="/checkout" element={<Payment />}/>
           <Route path="/concluido" element={<Finish />}/>
         </Routes>
