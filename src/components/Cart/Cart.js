@@ -68,7 +68,7 @@ export default function Cart() {
             </List>
             <Total>
                 <h1>Preço total:</h1>
-                {totalPrice === 0 ? <></> : <h2>R${totalPrice.toFixed(2)}</h2>}
+                {totalPrice === 0 ? <></> : <h2>R${totalPrice}</h2>}
             </Total>
             {disable ? 
             <Button>Finalizar compra</Button>
