@@ -27,6 +27,9 @@ export default function Cart() {
         })
 
         promise.catch(err =>{
+            if(err.request.status === 404){
+                return alert('Carrinho vazio')
+            }
             alert("falha em carregar os items")
         })
     }, [refresh])

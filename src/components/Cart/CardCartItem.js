@@ -67,7 +67,7 @@ export default function CardCartItem({name, price, img, productId, quantity, tot
                 <h6>{quantity}</h6>
                 <ion-icon name="add-circle-outline" onClick={() => addMore(productId)}></ion-icon>
             </span>
-            <h6>R$ {total}</h6>
+            <h6>R$ {total.toFixed(2)}</h6>
         </Container>
     )
 }
